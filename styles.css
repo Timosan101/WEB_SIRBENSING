@@ -1,0 +1,715 @@
+@font-face {
+    font-family:"azonix";
+src: url("FONTS/Azonix.otf");
+}
+
+@font-face {
+    font-family: "nexa";
+    src: url("FONTS/Nexa-Heavy.ttf");
+    font-weight: 800;
+}
+
+@font-face {
+    font-family: "nexa";
+    src: url("FONTS/Nexa-ExtraLight.ttf");
+    font-weight: 200;
+}
+
+/* =========================
+   BASIC RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #0D1725;
+    overflow-x: hidden;
+}
+
+.first-page {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: visible;
+    margin-bottom: 120px;
+}
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    width: 300;
+    height: 130px;
+    position: relative;
+    background: linear-gradient(
+    to bottom,
+    #0D1725 5%,
+    #264068 300%,
+    transparent 400px
+    );
+}
+
+
+/* =========================
+   ATRION LOGO
+========================= */
+
+.A {
+color: #19B5E5;
+background-color: transparent;
+}
+
+.TRION {
+    color: white;
+    background-color: transparent;
+}
+
+.LOGO {
+    position: absolute;
+    left: 60px;
+    top: 40px;
+    font-size: 60px;
+    font-family: "azonix";
+    letter-spacing: 17px;
+    background-color: transparent;
+}
+
+
+/* =========================
+   TOP NAVIGATION
+========================= */
+
+.top-navigation {
+    position: absolute;
+    right: 90px;
+    top: 33px;
+    display: flex;
+    gap: 67px;
+    align-items: center;
+    background-color: transparent;
+}
+
+.top-navigation a.login {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #ffffff;
+    color: #003444;
+    border-radius: 6px;
+    font-weight: 800;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.top-navigation a.login:hover {
+    background-color: #19B5E5;
+    color: #ffffff;
+    text-shadow: none;
+}
+
+
+/* =========================
+   MAIN NAVIGATION
+========================= */
+
+.main-navigation {
+    position: absolute;
+    right: 60px;
+    bottom: 20px;
+    background-color: transparent;
+    display: flex;
+    gap: 40px;
+}
+
+
+.main-navigation a,
+.top-navigation a {
+    text-decoration: none;
+    color: white;
+    background-color: transparent;
+    font-family: "nexa";
+    font-weight: 200;
+    transition: all 0.3s ease;
+}
+
+.top-navigation a:hover,
+.main-navigation a:hover {
+    font-weight: 800;
+    color: #19B5E5;
+}
+
+/*LALOM SA NAV*/
+
+.content {
+    font-family: "nexa";
+    font-weight: 200;
+    height: auto;
+    max-width: 500px;
+    margin-bottom: 30px;
+    z-index: 2;
+    background-color: transparent;
+    overflow: visible;
+}
+
+
+.gradient {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+    margin-top: 600px;
+}
+
+.gradient img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* STRETCHES AND FILLS FULL CONTAINER WITHOUT SCROLLBARS */
+    display: block;
+    background-color: transparent;
+}
+
+.first-page {
+    width: 100%;
+    min-height: calc(100vh - 120px);
+    padding: 60px;
+    display: flex;
+    
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tagline {
+    font-family: "azonix";
+    font-size: 20px;
+    color: #ffffff;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    background-color: transparent;
+}
+
+
+.luxury {
+    color: #19B5E5;
+    background-color: transparent;
+}
+
+
+.bold {
+    font-family: "nexa";
+    color: white;
+    font-weight: 800;
+    font-size: 80px;
+    line-height: 1.1;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    background-color: transparent
+}
+
+.description {
+    font-size: 25px;
+    line-height: 1.6;
+    color: #ffffff;
+    margin-bottom: 30px;
+    background-color: transparent
+}
+
+.lux {
+    font-size: 25px;
+    line-height: 1.6;
+    color: #ffffff;
+    margin-bottom: 60px;
+    background-color: transparent
+
+}
+
+.kani {
+    font-weight: 800;
+    background-color: transparent
+}
+
+
+.group {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    background-color: transparent
+}
+
+.shoppie, .explore {
+    display: inline-block;
+    font-size: 25px;
+    background-color: #19B5E5;
+    color: #ffffff;
+    padding: 13px 25px;
+    text-decoration: none;
+    font-family: "Nexa", sans-serif;
+    font-weight: bold;
+    letter-spacing: 2px;
+    transition: background-color 0.3s ease;
+    border-radius: 10px;
+    position: relative;
+    z-index: 10;
+}
+
+.shoppie:hover {
+    background-color: #00b652;
+    font-size: 26px;
+    transition: all 0.3s ease;
+}
+
+.explore:hover {
+    background-color: rgba(25, 181, 229, 0.2);
+    border-color: #19B5E5;
+}
+
+.image {
+    position: absolute;
+    z-index: 2;
+    right: -380px;
+    top: 150px;
+    background-color: transparent
+}
+
+.image img {
+    width: 1200px;
+    height: auto;
+    display: block;
+    background-color: transparent
+}
+
+
+/* =========================
+   BACKGROUND COVER LAYER
+========================= */
+
+.back {
+    position: absolute;
+    bottom: -230px;
+    left: 0;
+    width: 100%;
+    height: 200px; /* HEIGHT OF THE DARK BACKGROUND STRIP */
+    z-index: 4; /* SITS BEHIND FEATURES AND ATHLETE IMAGE */
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.back img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* =========================
+   FEATURES CONTAINER
+========================= */
+
+.features {
+    position: absolute;
+    bottom: -145px; /* ANCHORED TO THE BOTTOM OF THE FIRST PAGE */
+    left: 50%;
+    transform: translateX(-50%); /* HORIZONTALLY CENTERS THE BAR */
+    display: flex;
+    gap: 200px; /* SPACING BETWEEN EACH ITEM */
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    max-width: 1200px;
+    z-index: 10;
+    background-color: transparent;
+}
+
+/* INDIVIDUAL FEATURE ITEM (ICON + TEXT) */
+.authentic,
+.worldwide,
+.warranty,
+.payment {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: transparent;
+}
+
+/* FEATURE ICON IMAGES */
+.features img {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+    display: block;
+    background-color: transparent;
+}
+
+/* STACKED TEXT FORMATTING */
+.features .text {
+    display: flex;
+    flex-direction: column;
+    font-family: "azonix", sans-serif;
+    font-size: 13px;
+    color: #ffffff;
+    letter-spacing: 1.5px;
+    line-height: 1.2;
+    background-color: transparent;
+}
+
+
+
+/* =========================
+  END OF FIRST PAGE
+========================= */
+
+
+
+
+
+
+
+
+
+
+
+/* =========================
+   SECOND PAGE STARTS HEREEEEEEEEEEEEEEE
+========================= */
+
+.second-page {
+    position: relative;
+    width: 100%;
+    min-height: 160vh;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 100px 100px 80px 100px;
+    background-color: #0D1725;
+    z-index: 2;
+    overflow: visible;
+    margin-top: 0;
+}
+
+/* =========================
+   BACKGROUND ELEMENTS (LEFT SIDE)
+========================= */
+
+/* 1. GRADIENT / NET BACKGROUND */
+.back-sliding-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    background-color: transparent;
+    overflow: visible;
+}
+
+.back-sliding-gradient img {
+    width: 167%;
+    height: auto;
+    object-fit: cover;
+    display: show;
+}
+
+/* 2. PADDLE & BALL FEATURED IMAGE */
+.pikol {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 45%;
+    max-width: 600px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.pikol img {
+    width: 90%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+/* =========================
+   RIGHT SIDE FOREGROUND CONTENT
+========================= */
+
+.bestseller-right {
+    position: relative;
+    z-index: 3;
+    width: 50%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: -50 0px;
+}
+
+/* HEADERS */
+.bestseller-header {
+    margin-bottom: 35px;
+}
+
+.sub-heading {
+    font-family: "azonix" ,sans-serif;
+    font-size: 18px;
+    color: #ffffff;
+    letter-spacing: 2px;
+
+}
+
+.main-heading {
+    font-family: "nexa", sans-serif;
+    font-weight: 800;
+    font-size: 55px;
+    color: #FFFFFF;
+    letter-spacing: 3px;
+}
+
+/* =========================
+   PRODUCT GRID & CARDS
+========================= */
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* CREATES 2 EQUAL COLUMNS */
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    column-gap: 120px;
+    row-gap: 50px;
+}
+
+/* REMOVE PREVIOUS GRID AREA ASSIGNMENTS SO ALL CARDS BEHAVE IDENTICALLY */
+.card-1st,
+.card-2nd,
+.card-3rd,
+.card-4th {
+    grid-area: auto;
+    width: 100%;
+}
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.rank {
+    font-family: "azonix", sans-serif;
+    font-size: 30px;
+    color: #19B5E5;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+.card-image {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* FORCES ALL CARDS TO HAVE PERFECT EQUAL SQUARE DIMENSIONS */
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #0a2332;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-image:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(25, 181, 229, 0.2);
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* CROPS ALL 4 PADDLE IMAGES TO EXACT EQUAL SIZES */
+    display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================
+   THIRD PAGE HEREEEEEEEEEEEEEE
+========================= */
+
+.third-page {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #0D1725;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 80px;
+    z-index: 5;
+    overflow: hidden;
+}
+
+/* =========================
+   BLUE BANNER BACKGROUND
+========================= */
+
+.banner-bg {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    height: 380px; /* ADJUST HEIGHT OF THE CYAN/BLUE STRIP */
+    z-index: 1;
+    pointer-events: none;
+}
+
+.banner-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* =========================
+   FOREGROUND CONTENT LAYOUT
+========================= */
+
+.third-content {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* =========================
+   LEFT VIP CARD
+========================= */
+
+.vip-card {
+    background-color: #0a2332;
+    border: 2px solid #19B5E5;
+    border-radius: 25px;
+    padding: 40px 35px;
+    width: 380px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.vip-card .sub-title {
+    font-family: "azonix", sans-serif;
+    font-size: 13px;
+    color: #19B5E5;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.vip-card h2 {
+    font-family: "nexa", sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.3;
+    margin-bottom: 25px;
+}
+
+.app-btn {
+    display: inline-block;
+    background-color: #19B5E5;
+    color: #ffffff;
+    font-family: "azonix", sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 12px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    letter-spacing: 1.5px;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.app-btn:hover {
+    background-color: #1598c2;
+    transform: translateY(-2px);
+}
+
+/* =========================
+   RIGHT SPLIT BALL GRAPHIC & TEXT
+========================= */
+
+.ball-container {
+    position: relative;
+    width: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.big-ball-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+/* TEXT CENTERED IN THE SPLIT GAP OF THE BALL */
+.overlay-text {
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    pointer-events: none;
+}
+
+.yellow-text-sm {
+    font-family: "azonix", sans-serif;
+    font-size: 32px;
+    font-weight: 900;
+    color: #E2F022;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    letter-spacing: 2px;
+}
+
+.yellow-text-lg {
+    font-family: "azonix", sans-serif;
+    font-size: 36px;
+    font-weight: 900;
+    color: #E2F022;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    letter-spacing: 2px;
+}
+
+/* =========================
+   BOTTOM CAPTION
+========================= */
+
+.bottom-caption {
+    position: absolute;
+    bottom: 40px;
+    left: 80px;
+    font-family: "azonix", sans-serif;
+    font-size: 12px;
+    color: #8A99AD;
+    letter-spacing: 1px;
+    z-index: 10;
+}
