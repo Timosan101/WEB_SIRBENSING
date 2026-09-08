@@ -84,10 +84,10 @@ background-color: transparent;
 
 .top-navigation {
     position: absolute;
-    right: 90px;
+    right: 79px;
     top: 33px;
     display: flex;
-    gap: 67px;
+    gap: 65px;
     align-items: center;
     background-color: transparent;
 }
@@ -882,12 +882,25 @@ box-shadow: 0 10px 25px rgba(25, 181, 229, 0.2);
     align-items: center;
     border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
 }
 
 .cat-card img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.cat-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8);
+    border-color: rgba(25, 181, 229, 0.6);
+}
+
+.cat-card:hover img {
+    transform: scale(1.08);
 }
 
 
@@ -905,7 +918,7 @@ box-shadow: 0 10px 25px rgba(25, 181, 229, 0.2);
    .fifth-page {
     position: relative;
     width: 100%;
-    min-height: 130vh;
+    min-height: 150vh;
     background-color: #0D1725;
     display: flex;
     justify-content: center;
@@ -990,7 +1003,8 @@ box-shadow: 0 10px 25px rgba(25, 181, 229, 0.2);
 }
 
 .lady-caption {
-    font-family: Arial, sans-serif;
+    font-family: "nexa", sans-serif;
+    font-weight: 200;
     font-size: 18px;
     color: #fcfcfc;
     margin-bottom: 30px;
@@ -1015,6 +1029,9 @@ box-shadow: 0 10px 25px rgba(25, 181, 229, 0.2);
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     width: 100%;
+    
+    transform: translateY(30px); /* MOVES ONLY THIS GRID 30px DOWNWARD */
+    transition: transform 0.3s ease;
 }
 
 .gallery-card {
@@ -1023,20 +1040,56 @@ box-shadow: 0 10px 25px rgba(25, 181, 229, 0.2);
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    
+    /* ADD SMOOTH TRANSITION FOR THE CARD LIFT */
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
 }
+
+
+
 
 .gallery-card img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    
+    /* ADD SMOOTH TRANSITION FOR THE IMAGE ZOOM */
+    transition: transform 0.4s ease;
+}
+
+
+.gallery-card:hover {
+    transform: translateY(-8px); /* LIFTS CARD UPWARD */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8); /* DEEPENS DROP SHADOW */
+    border-color: rgba(25, 181, 229, 0.6); /* LIGHTS UP BORDER WITH CYAN ACCENT */
+}
+
+.gallery-card:hover img {
+    transform: scale(1.08); /* SMOOTHLY ZOOMS IN IMAGE */
 }
 
 /* FOOTER SECTION */
 .fifth-footer {
+    position: relative;
+    width: 100vw;
+    height: 240px;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-top: 50px;
+    
+    background-image: url('images/fifth/background.png');
+    background-repeat: repeat;
+    background-position: center;
+    opacity: 0.9;
+    
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    padding-top: 20px;
+    align-items: center;
+    padding: 40px 80px;
+    box-sizing: border-box;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -1063,6 +1116,14 @@ box-shadow: 0 10px 25px rgba(25, 181, 229, 0.2);
     color: #19B5E5;
 }
 
+
+.social-icon {
+    width: 28px;
+    height: auto;
+    object-fit: contain;
+}
+
+
 .sponsors-title {
     font-family: "azonix", sans-serif;
     font-size: 25px;
@@ -1070,16 +1131,40 @@ box-shadow: 0 10px 25px rgba(25, 181, 229, 0.2);
     letter-spacing: 2px;
     display: block;
     text-align: center;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .sponsors-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 15px 25px;
-    color: #8A99AD;
-    font-family: Arial, sans-serif;
-    font-size: 11px;
+    gap: 20px 30px;
+    align-items: center;
+    justify-items: center;
+}
+
+.sponsor-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.3s ease;
+}
+
+.sponsor-item:hover {
+    transform: translateY(-4px);
+}
+
+.sponsor-item img {
+    height: 35px;
+    width: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1); /* MAKES ALL LOGO IMAGES PURE WHITE */
+}
+
+.sponsor-item span {
+    color: #FFFFFF;
+    font-family: "Arial", sans-serif;
+    font-size: 10px;
     font-weight: bold;
     letter-spacing: 1px;
     text-align: center;
@@ -1088,13 +1173,14 @@ box-shadow: 0 10px 25px rgba(25, 181, 229, 0.2);
 /* COPYRIGHT */
 .copyright {
     position: absolute;
-    bottom: -59px;         /* ADJUST THIS NUMBER TO PUSH IT LOWER OR HIGHER */
+    bottom: -68px;         /* ADJUST THIS NUMBER TO PUSH IT LOWER OR HIGHER */
     left: 50%;
     transform: translateX(-50%); /* CENTERS IT HORIZONTALLY */
     
     font-family: "nexa", sans-serif;
+    letter-spacing: 3px;
     font-weight: 200;
-    font-size: 12px;
+    font-size: 25px;
     color: #ffffff;
     width: 100%;
     text-align: center;

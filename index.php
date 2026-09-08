@@ -24,7 +24,6 @@ $lux='<span class="kani">Luxury</span> at its finest..';
 
 
     <nav class="top-navigation">
-        <a href="#">About Us</a>
         <a href="#">Sign Up</a>
         <a href="#" class="login">Log In</a>
        
@@ -33,8 +32,7 @@ $lux='<span class="kani">Luxury</span> at its finest..';
 
     <nav class="main-navigation">
         <a href="#">HOME</a>
-        <a href="#">PADDLES</a>
-        <a href="#">CATEGORY</a>
+        <a href="#">ABOUT US</a>
         <a href="#">APPAREL</a>
         <a href="#">CONTACT US</a>
     </nav>
@@ -329,34 +327,75 @@ $lux='<span class="kani">Luxury</span> at its finest..';
         </div>
 
         <!-- FOOTER PART: BRAND, CONTACTS & SPONSORS -->
-        <div class="fifth-footer">
-            
-            <div class="footer-left">
-                <div class="footer-logo">
-                    <?php echo $atrion; ?>
-                </div>
-                <div class="contact-info">
-                    <p><span class="icon gmail">@</span> atrion.luxury@gmail.com</p>
-                    <p><span class="icon ig">IG</span> atrion_sports&luxury101</p>
-                    <p><span class="icon fb">FB</span> atrion luxury</p>
-                </div>
-            </div>
+<div class="fifth-footer">
+    
+    <div class="footer-left">
+        <div class="footer-logo">
+            <?php echo $atrion; ?>
+        </div>
+        <div class="contact-info">
+            <p>
+                <img src="images/logo/gmail.png" alt="Gmail" class="social-icon">
+                atrion.luxury@gmail.com
+            </p>
+            <p>
+                <img src="images/logo/IG.png" alt="Instagram" class="social-icon">
+                atrion_sports&luxury101
+            </p>
+            <p>
+                <img src="images/logo/fb.png" alt="Facebook" class="social-icon">
+                atrion luxury
+            </p>
+        </div>
+    </div>
 
-            <div class="footer-right">
-                <span class="sponsors-title">SPONSORS</span>
-                <div class="sponsors-grid">
-                    <span>BALENCIAGA</span>
-                    <span>VERSACE</span>
-                    <span>NIKE</span>
-                    <span>POLO</span>
-                    <span>LOUIS VUITTON</span>
-                    <span>ADIDAS</span>
-                    <span>LACOSTE</span>
-                    <span>PUMA</span>
-                    <span>GUCCI</span>
-                    <span>UNDER ARMOUR</span>
-                </div>
-            </div>
+
+
+    <div class="footer-right">
+    <span class="sponsors-title">SPONSORS</span>
+    <div class="sponsors-grid">
+        <div class="sponsor-item">
+            <img src="images/logo/BRAND/B.png" alt="Balenciaga">
+            <span>BALENCIAGA</span>
+        </div>
+        <div class="sponsor-item">
+            <img src="images/logo/BRAND/V.png" alt="Versace">
+            <span>VERSACE</span>
+        </div>
+        <div class="sponsor-item">
+            <img src="images/logo/BRAND/N.png" alt="Nike">
+            <span>NIKE</span>
+        </div>
+        <div class="sponsor-item">
+            <img src="images/logo/BRAND/polo.png" alt="Polo">
+            <span>POLO</span>
+        </div>
+        <div class="sponsor-item">
+            <img src="images/logo/BRAND/LV.png" alt="Louis Vuitton">
+            <span>LOUIS VUITTON</span>
+        </div>
+        <div class="sponsor-item">
+            <img src="images/logo/BRAND/A.png" alt="Adidas">
+            <span>ADIDAS</span>
+        </div>
+        <div class="sponsor-item">
+            <img src="images/logo/BRAND/lacoste.png" alt="Lacoste">
+            <span>LACOSTE</span>
+        </div>
+        <div class="sponsor-item">
+            <img src="images/logo/BRAND/P.png" alt="Puma">
+            <span>PUMA</span>
+        </div>
+        <div class="sponsor-item">
+            <img src="images/logo/BRAND/G.png" alt="Gucci">
+            <span>GUCCI</span>
+        </div>
+        <div class="sponsor-item">
+            <img src="images/logo/BRAND/UA.png" alt="Under Armour">
+            <span>UNDER ARMOUR</span>
+        </div>
+    </div>
+</div>
 
         </div>
 
