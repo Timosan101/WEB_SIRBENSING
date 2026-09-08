@@ -548,6 +548,8 @@ background-color: transparent;
 
 .third-page {
     position: relative;
+    z-index: 5;
+    margin-top: -111px;
     width: 100%;
     min-height: 100vh;
     background-color: #0D1725;
@@ -556,7 +558,6 @@ background-color: transparent;
     justify-content: center;
     align-items: center;
     padding: 60px 80px;
-    z-index: 5;
     overflow: hidden;
 }
 
@@ -566,18 +567,18 @@ background-color: transparent;
 
 .banner-bg {
     position: absolute;
-    top: 50%;
+    top: 49%;
     left: 0;
     transform: translateY(-50%);
     width: 100%;
-    height: 380px; /* ADJUST HEIGHT OF THE CYAN/BLUE STRIP */
+    height: auto; /* ADJUST HEIGHT OF THE CYAN/BLUE STRIP */
     z-index: 1;
     pointer-events: none;
 }
 
 .banner-bg img {
     width: 100%;
-    height: 100%;
+    height: 150%;
     object-fit: cover;
     display: block;
 }
@@ -588,7 +589,7 @@ background-color: transparent;
 
 .third-content {
     position: relative;
-    z-index: 10;
+    z-index: 3;
     width: 100%;
     max-width: 1200px;
     display: flex;
@@ -601,11 +602,14 @@ background-color: transparent;
 ========================= */
 
 .vip-card {
+    position: relative;
     background-color: #0a2332;
     border: 2px solid #19B5E5;
     border-radius: 25px;
     padding: 40px 35px;
+    left: -80px;
     width: 380px;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -615,7 +619,7 @@ background-color: transparent;
 
 .vip-card .sub-title {
     font-family: "azonix", sans-serif;
-    font-size: 13px;
+    font-size: 18px;
     color: #19B5E5;
     letter-spacing: 2px;
     margin-bottom: 15px;
@@ -623,7 +627,7 @@ background-color: transparent;
 
 .vip-card h2 {
     font-family: "nexa", sans-serif;
-    font-size: 28px;
+    font-size: 34px;
     font-weight: 800;
     color: #ffffff;
     line-height: 1.3;
@@ -634,9 +638,9 @@ background-color: transparent;
     display: inline-block;
     background-color: #19B5E5;
     color: #ffffff;
-    font-family: "azonix", sans-serif;
-    font-size: 13px;
-    font-weight: bold;
+    font-family: "nexa";
+    font-size: 20px;
+    font-weight: 800;
     padding: 12px 28px;
     border-radius: 8px;
     text-decoration: none;
@@ -655,14 +659,15 @@ background-color: transparent;
 
 .ball-container {
     position: relative;
-    width: 450px;
+    /* CHANGE THIS WIDTH TO RESIZE BOTH THE BALL AND OVERLAY TEXT */
+    width: 320px; /* E.G., REDUCE FROM 450px TO 320px */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .big-ball-img {
-    width: 100%;
+    width: 240%; /* LETS THE IMAGE FILL THE BALL CONTAINER EXACTLY */
     height: auto;
     display: block;
     object-fit: contain;
@@ -671,7 +676,7 @@ background-color: transparent;
 /* TEXT CENTERED IN THE SPLIT GAP OF THE BALL */
 .overlay-text {
     position: absolute;
-    top: 48%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
@@ -683,18 +688,18 @@ background-color: transparent;
 
 .yellow-text-sm {
     font-family: "azonix", sans-serif;
-    font-size: 32px;
+    font-size: 72px;
     font-weight: 900;
-    color: #E2F022;
+    color: #e5ff00;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
     letter-spacing: 2px;
 }
 
 .yellow-text-lg {
     font-family: "azonix", sans-serif;
-    font-size: 36px;
+    font-size: 75px;
     font-weight: 900;
-    color: #E2F022;
+    color: #e5ff00;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
     letter-spacing: 2px;
 }
@@ -705,11 +710,393 @@ background-color: transparent;
 
 .bottom-caption {
     position: absolute;
-    bottom: 40px;
-    left: 80px;
-    font-family: "azonix", sans-serif;
-    font-size: 12px;
-    color: #8A99AD;
+    bottom: 120px;
+    left: 130px;
+    font-family: "nexa";
+    font-weight: 200;
+    font-size: 25px;
+    color: #ffffff;
     letter-spacing: 1px;
+    z-index: 10;
+}
+
+
+
+
+
+
+/* ==========================================
+   FOURTH PAGE STYLES
+   ========================================== */
+   .fourth-page {
+    position: relative;
+    width: 100%;
+    min-height: 120vh;
+    background-color: #0D1725;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 80px;
+    overflow: hidden;
+}
+
+/* HANDSHAKE BACKGROUND */
+.fourth-page .handshake-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.35; /* ADJUST TRANSPARENCY OF HANDSHAKE BG */
+}
+
+
+.fourth-page .handshake-bg img {
+    width: 100%;
+    height: 150%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* TOP CONTENT FLEXBOX */
+.fourth-top {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* MODEL CARD (LEFT) */
+.model-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    display: flex;
+    align-items: flex-end;
+    padding: 15px 30px 15px 15px;
+    gap: -30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    
+    /* ALLOWS THE HEAD TO POP OUT OVER THE TOP BORDER */
+}
+
+
+.model-img {
+    height: 300px;          /* MAKES THE IMAGE BIGGER (WAS 260px) */
+    object-fit: contain;
+    position: relative;
+    top: -40px;             /* SHIFTS THE IMAGE UP TO OVERLAP TOP BORDER */
+    margin-bottom: -55px;   /* KEEPS THE BOTTOM ALIGNED INSIDE THE CARD */
+}
+
+.model-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    color: #FFFFFF;
+    font-family: "azonix";
+    font-size: 16px;
+    letter-spacing: 4px;
+    padding-bottom: 20px;
+}
+
+/* RIGHT HEADING TEXT */
+.fourth-heading {
+    text-align: center;
+    color: #FFFFFF;
+    max-width: 600px;
+}
+
+.fourth-heading h2 {
+    font-family: "nexa";
+    font-size: 46px;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: 1px;
+}
+
+
+.fourth-heading .cyan-text {
+    color: #19B5E5;
+}
+
+
+.fourth-heading p {
+    font-family: "nexa";
+    font-weight: 200;
+    font-size: 30px;
+    color: #ffffff;
+    margin-top: 20px;
+}
+
+/* BOTTOM CATEGORIES */
+.fourth-bottom {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.category-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+.category-item :hover {
+transform: translateY(-6px);
+box-shadow: 0 10px 25px rgba(25, 181, 229, 0.2);
+}
+
+
+.cat-title {
+    font-family: "azonix";
+    font-size: 20px;
+    color: #ffffff;
+    letter-spacing: 4px;
+    margin-bottom: 12px;
+}
+
+.cat-card {
+    width: 100%;
+    height: 180px;
+    background-color: #121E2D;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.cat-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+
+
+
+
+
+
+
+/* ==========================================
+   FIFTH PAGE STYLES
+   ========================================== */
+   .fifth-page {
+    position: relative;
+    width: 100%;
+    min-height: 130vh;
+    background-color: #0D1725;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 80px;
+    overflow: hidden;
+}
+
+.fifth-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.25;
+}
+
+.fifth-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.fifth-container {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* TOP SECTION */
+.fifth-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.feedback-text {
+    color: #FFFFFF;
+    max-width: 500px;
+}
+
+.feedback-text h2 {
+    font-family: "nexa";
+    font-size: 42px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.feedback-text p {
+    font-family: "nexa";
+    font-weight: 200;
+    font-size: 15px;
+    color: #ffffff;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.feedback-text .tagline {
+    margin-top: 25px;
+    color: #ffffff;
+}
+
+/* LADY CARD */
+.lady-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    display: flex;
+    align-items: flex-end;
+    padding: 0 20px 0 30px;
+    width: 450px;
+    height: 220px;
+    overflow: visible;
+}
+
+.lady-caption {
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    color: #fcfcfc;
+    margin-bottom: 30px;
+    line-height: 1.3;
+    
+    text-align: center; /* THIS DOES THE CTRL+E CENTER ALIGNMENT */
+    flex: 1;            /* ENSURES IT TAKES UP THE AVAILABLE LEFT SPACE TO CENTER PROPERLY */
+}
+
+.lady-img {
+    height: 300px;
+    position: relative;
+    top: -20px;
+    margin-bottom: -20px;
+    object-fit: contain;
+    z-index: 5;
+}
+
+/* 4 RECTANGLE GALLERY */
+.fifth-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    width: 100%;
+}
+
+.gallery-card {
+    height: 160px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* FOOTER SECTION */
+.fifth-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-logo {
+    font-family: "azonix";
+    letter-spacing: 7px;
+    font-size: 47px;
+    margin-bottom: 15px;
+}
+
+.contact-info p {
+    font-family: "nexa", sans-serif;
+    font-weight: 200;
+    font-size: 20px;
+    color: #ffffff;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contact-info .icon {
+    font-weight: bold;
+    color: #19B5E5;
+}
+
+.sponsors-title {
+    font-family: "azonix", sans-serif;
+    font-size: 25px;
+    color: #FFFFFF;
+    letter-spacing: 2px;
+    display: block;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.sponsors-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px 25px;
+    color: #8A99AD;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+/* COPYRIGHT */
+.copyright {
+    position: absolute;
+    bottom: -59px;         /* ADJUST THIS NUMBER TO PUSH IT LOWER OR HIGHER */
+    left: 50%;
+    transform: translateX(-50%); /* CENTERS IT HORIZONTALLY */
+    
+    font-family: "nexa", sans-serif;
+    font-weight: 200;
+    font-size: 12px;
+    color: #ffffff;
+    width: 100%;
+    text-align: center;
     z-index: 10;
 }

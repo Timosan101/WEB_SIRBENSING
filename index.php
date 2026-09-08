@@ -123,11 +123,11 @@ $lux='<span class="kani">Luxury</span> at its finest..';
 <!-- ************************   SECOND PAGE STARTS HERE ****************************-->
 <section class="second-page">
 
-<div class="back-sliding-gradient">
+    <div class="back-sliding-gradient">
         <img src="images/second/kilid.png" alt="ATRION BESTSELLERS">
     </div> 
 
-<div class="pikol">
+    <div class="pikol">
         <img src="images/second/paddle.png" alt="ATRION BESTSELLERS">
     </div>
 
@@ -184,7 +184,7 @@ $lux='<span class="kani">Luxury</span> at its finest..';
 
 <!-- ************************   THIRD PAGE STARTS HERE ****************************-->
 
-<section class="third_page">
+<section class="third-page">
     <!-- BLUE BANNER BACKGROUND STRIP -->
     <div class="banner-bg">
         <img src="images/third/3rd.png" alt="BANNER BACKGROUND">
@@ -213,21 +213,159 @@ $lux='<span class="kani">Luxury</span> at its finest..';
 
     <!-- FOOTER CAPTION -->
     <p class="bottom-caption">
-        Experience the BEST EVER pickle ball bundle pack with your friends now !
+        Experience the BEST EVER pickle ball bundle <br> pack with your friends now !
     </p>
 </section>
 
 
-<!-- ************************   FOURTH PAGE STARTS HERE ****************************-->
 
-<section class="third_page">
-    
+<!-- ************************   FOURTH PAGE STARTS HERE ****************************-->
+`
+<section class="fourth-page">
+
+<!-- HANDSHAKE BACKGROUND IMAGE -->
+
+    <div class="handshake-bg">
+        <img src="images/fourth/SPORTSMANSHIP.jpg" alt="Sportsmanship Background">
+    </div>
+
+    <!-- TOP SECTION: MODEL CARD & MAIN HEADING -->
+    <div class="fourth-top">
+        
+        <!-- FEMALE MODEL CARD -->
+        <div class="model-card">
+            <img src="images/fourth/bayenisya.png" alt="Female Model" class="model-img">
+            <div class="model-info">
+                <span>female</span>
+                <span>26</span>
+                <span>5'11</span>
+                <span>MVP: 16X</span>
+            </div>
+        </div>
+
+        <!-- RIGHT SIDE HEADINGS -->
+        <div class="fourth-heading">
+            <h2>Check Our<br>High Quality <span class="cyan-text">Luxury</span><br>Clothing & Equipments !</h2>
+            <p>Worldwide's best and luxurious equipment a company has to offer </p>
+        </div>
+
+    </div>
+
+    <!-- BOTTOM SECTION: 3 PRODUCT CATEGORIES -->
+    <div class="fourth-bottom">
+
+        <!-- CATEGORY 1: APPAREL -->
+        <div class="category-item">
+            <span class="cat-title">APPAREL</span>
+            <div class="cat-card">
+                <img src="images/fourth/shirts.jpg" alt="Apparel Shirts">
+            </div>
+        </div>
+
+        <!-- CATEGORY 2: PADDLES -->
+        <div class="category-item">
+            <span class="cat-title">PADDLES</span>
+            <div class="cat-card">
+                <img src="images/fourth/quality101.jpg" alt="Paddle Equipment">
+            </div>
+        </div>
+
+        <!-- CATEGORY 3: SNEAKERS -->
+        <div class="category-item">
+            <span class="cat-title">SNEAKERS</span>
+            <div class="cat-card">
+                <img src="images/fourth/shoes.jpg" alt="Pickleball Shoes">
+            </div>
+        </div>
+
+    </div>
 </section>
+
+
+
 
 <!-- ************************   FIFTH PAGE STARTS HERE ****************************-->
 
-<section class="third_page">
-    
+<section class="fifth-page">
+    <!-- COURT BACKGROUND IMAGE -->
+    <div class="fifth-bg">
+        <img src="images/fifth/court.jpg" alt="Court Background">
+    </div>
+
+    <!-- MAIN FEEDBACK CONTAINER -->
+    <div class="fifth-container">
+
+        <!-- TOP PART: FEEDBACK TEXT & LADY MODEL CARD -->
+        <div class="fifth-top">
+            
+            <div class="feedback-text">
+                <h2>FEEDBACK</h2>
+                <p>Where concerns and demands meets with your awaited answer.</p>
+                <p>Your feedback is seen, answered and valued.<br>Feel free to vent out anything.</p>
+                <p class="tagline">For the goodness of all luxuriness.</p>
+            </div>
+
+            <div class="lady-card">
+                <span class="lady-caption">Mary jane's response: <br><br><br>The BEST experience<br>EVER !</span>
+                <img src="images/fifth/janiii.png" alt="Model Lady" class="lady-img">
+            </div>
+
+        </div>
+
+        <!-- MIDDLE PART: 4 GALLERY IMAGES -->
+        <div class="fifth-gallery">
+            <div class="gallery-card">
+                <img src="images/fifth/pretty.jpg" alt="Pretty">
+            </div>
+            <div class="gallery-card">
+                <img src="images/fifth/Negra.jpg" alt="Negra">
+            </div>
+            <div class="gallery-card">
+                <img src="images/fifth/sitting.jpg" alt="Sitting">
+            </div>
+            <div class="gallery-card">
+                <img src="images/fifth/couple.jpg" alt="Couple">
+            </div>
+        </div>
+
+        <!-- FOOTER PART: BRAND, CONTACTS & SPONSORS -->
+        <div class="fifth-footer">
+            
+            <div class="footer-left">
+                <div class="footer-logo">
+                    <?php echo $atrion; ?>
+                </div>
+                <div class="contact-info">
+                    <p><span class="icon gmail">@</span> atrion.luxury@gmail.com</p>
+                    <p><span class="icon ig">IG</span> atrion_sports&luxury101</p>
+                    <p><span class="icon fb">FB</span> atrion luxury</p>
+                </div>
+            </div>
+
+            <div class="footer-right">
+                <span class="sponsors-title">SPONSORS</span>
+                <div class="sponsors-grid">
+                    <span>BALENCIAGA</span>
+                    <span>VERSACE</span>
+                    <span>NIKE</span>
+                    <span>POLO</span>
+                    <span>LOUIS VUITTON</span>
+                    <span>ADIDAS</span>
+                    <span>LACOSTE</span>
+                    <span>PUMA</span>
+                    <span>GUCCI</span>
+                    <span>UNDER ARMOUR</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- COPYRIGHT BOTTOM -->
+        <div class="copyright">
+            © Atrion 2026. All rights reserved
+        </div>
+
+    </div>
 </section>
 
 
