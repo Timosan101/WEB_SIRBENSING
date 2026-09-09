@@ -1,4 +1,23 @@
 <?php
+
+session_start();
+
+$user_firstname = '';
+if (isset($_SESSION['fullname'])) {
+    // THIS EXTRACTS ONLY THE FIRST NAME FROM "JOHN DOE" -> "JOHN"
+    $name_parts = explode(' ', trim($_SESSION['fullname']));
+    $user_firstname = strtoupper($name_parts[0]);
+}
+
+
+// CHECK IF THE USER IS LOGGED IN
+$isLoggedIn = isset($_SESSION['user_id']); 
+
+// HELPER FUNCTION FOR INTERACTIVE LINKS
+function getInteractiveLink($destination, $isLoggedIn) {
+    return $isLoggedIn ? $destination : 'login.php';
+}
+
 $atrion='<span class="A">A</span><span class="TRION">TRION</span>';
 $tag="UPGRADE YOUR GAME EXPERIENCE...";
 $desc="Worldwide’s first and authentic online pickleball market and events management center.";
@@ -24,22 +43,30 @@ $lux='<span class="kani">Luxury</span> at its finest..';
 
 
     <nav class="top-navigation">
-        <a href="#">Sign Up</a>
-        <a href="#" class="login">Log In</a>
-       
-    </nav>
+    <?php if ($isLoggedIn): ?>
+        <span class="welcome-text">
+    <?php echo !empty($user_firstname) ? "WELCOME, " . htmlspecialchars($user_firstname) . "!" : "WELCOME!"; ?>
+</span>
+        <a href="logout.php" class="login">LOG OUT</a>
+    <?php else: ?>
+        <a href="signup.php">Sign Up</a>
+        <a href="login.php" class="login">Log In</a>
+    <?php endif; ?>
+</nav>
 
 
     <nav class="main-navigation">
-        <a href="#">HOME</a>
-        <a href="#">ABOUT US</a>
-        <a href="#">APPAREL</a>
-        <a href="#">CONTACT US</a>
+        <a href="#first-page">HOME</a>
+        <a href="apparels.php">APPARELS</a>
+        <a href="#fourth-page">FITS</a>
+        <a href="#fifth-page">CONTACT US</a>
+        <a href="#third-page">ABOUT US</a>
     </nav>
+
 </header>
 
 <!-- ************************   FIRST PAGE STARTS HERE ****************************-->
-<section class="first-page">
+<section class="first-page" id="first-page">
 
     <div class="gradient">
     <img src="images/first/kanisya.png" alt="SPORTS LUXURY">
@@ -54,10 +81,11 @@ $lux='<span class="kani">Luxury</span> at its finest..';
 
         <p class="lux"><?php echo $lux; ?> </p>
 
+
         <div class="group">
-        <a href="#" class="shoppie">SHOP NOW!</a>
-        <a href="#" class="explore">EXPLORE</a>
-        </div>
+    <a href="<?php echo getInteractiveLink('apparels.php', $isLoggedIn); ?>" class="shoppie">SHOP NOW!</a>
+    </div>
+
     </div>
 
 
@@ -144,45 +172,44 @@ $lux='<span class="kani">Luxury</span> at its finest..';
     <!-- PRODUCT CARDS GRID (4 ITEMS) -->
 
     <!-- 1ST PLACE PRODUCT -->
-    <div class="product-card card-1st">
+    <a href="<?php echo getInteractiveLink('apparels.php?id=1', $isLoggedIn); ?>" class="product-card card-1st">
         <span class="rank">1ST</span>
-        <div class="card-image">
-            <img src="images/second/perseus.jpg" alt="PERSEUS PRO IV">
-        </div>
-    </div>
+            <div class="card-image">
+                <img src="images/second/perseus.jpg" alt="PERSEUS PRO IV">
+            </div>
+    </a>
 
     <!-- 2ND PLACE PRODUCT -->
-    <div class="product-card card-2nd">
+    <a href="<?php echo getInteractiveLink('apparels.php?id=2', $isLoggedIn); ?>" class="product-card card-2nd">
         <span class="rank">2ND</span>
-        <div class="card-image">
-            <img src="images/second/kani.jpg" alt="SELKIRK">
-        </div>
-    </div>
+            	<div class="card-image">
+            		<img src="images/second/kani.jpg" alt="SELKIRK">
+        	</div>
+    </a>
 
     <!-- 3RD PLACE PRODUCT -->
-    <div class="product-card card-3rd">
+    <a href="<?php echo getInteractiveLink('apparels.php?id=3', $isLoggedIn); ?>" class="product-card card-3rd">
         <span class="rank">3RD</span>
-        <div class="card-image">
-            <img src="images/second/lux.jpg" alt="LUXX PRO">
-        </div>
-    </div>
+            	<div class="card-image">
+            		<img src="images/second/lux.jpg" alt="LUXX PRO">
+        	</div>
+    </a>
 
     <!-- 4TH PLACE PRODUCT -->
-    <div class="product-card card-4th">
+    <a href="<?php echo getInteractiveLink('apparels.php?id=4', $isLoggedIn); ?>" class="product-card card-4th">
         <span class="rank">4TH</span>
-        <div class="card-image">
-            <img src="images/second/ikaupat.jpg" alt="FOURTH PADDLE">
-        </div>
+            	<div class="card-image">
+            		<img src="images/second/ikaupat.jpg" alt="FOURTH PADDLE">
+        	</div>
+    </a>
     </div>
-
-</div>
     </div>
 </section>
 
 
 <!-- ************************   THIRD PAGE STARTS HERE ****************************-->
 
-<section class="third-page">
+<section class="third-page" id="third-page">
     <!-- BLUE BANNER BACKGROUND STRIP -->
     <div class="banner-bg">
         <img src="images/third/3rd.png" alt="BANNER BACKGROUND">
@@ -195,7 +222,7 @@ $lux='<span class="kani">Luxury</span> at its finest..';
         <div class="vip-card">
             <span class="sub-title">BUNDLE EXPERIENCE</span>
             <h2>Join Our VIP's<br>best FREEBIES<br>& SERVICES !</h2>
-            <a href="#" class="app-btn">GET THE APP</a>
+            <a href="<?php echo getInteractiveLink('download-app.php', $isLoggedIn); ?>" class="app-btn">GET THE APP</a>
         </div>
 
         <!-- RIGHT SIDE: BIG SPLIT BALL GRAPHIC AND OVERLAY TEXT -->
@@ -218,10 +245,10 @@ $lux='<span class="kani">Luxury</span> at its finest..';
 
 
 <!-- ************************   FOURTH PAGE STARTS HERE ****************************-->
-`
-<section class="fourth-page">
 
-<!-- HANDSHAKE BACKGROUND IMAGE -->
+<section class="fourth-page" id="fourth-page">
+
+    <!-- HANDSHAKE BACKGROUND IMAGE -->
 
     <div class="handshake-bg">
         <img src="images/fourth/SPORTSMANSHIP.jpg" alt="Sportsmanship Background">
@@ -249,33 +276,34 @@ $lux='<span class="kani">Luxury</span> at its finest..';
 
     </div>
 
-    <!-- BOTTOM SECTION: 3 PRODUCT CATEGORIES -->
-    <div class="fourth-bottom">
+<!-- BOTTOM SECTION: 3 PRODUCT CATEGORIES -->
+<div class="fourth-bottom">
 
-        <!-- CATEGORY 1: APPAREL -->
-        <div class="category-item">
-            <span class="cat-title">APPAREL</span>
-            <div class="cat-card">
-                <img src="images/fourth/shirts.jpg" alt="Apparel Shirts">
-            </div>
-        </div>
+    <!-- CATEGORY 1: SHIRTS -->
+    <div class="category-item">
+        <span class="cat-title">SHIRTS</span>
+        <a href="<?php echo getInteractiveLink('apparels.php#shirts-section', $isLoggedIn); ?>" class="cat-card">
+            <img src="images/fourth/shirts.jpg" alt="Apparel Shirts">
+        </a>
+    </div>
 
-        <!-- CATEGORY 2: PADDLES -->
-        <div class="category-item">
-            <span class="cat-title">PADDLES</span>
-            <div class="cat-card">
-                <img src="images/fourth/quality101.jpg" alt="Paddle Equipment">
-            </div>
-        </div>
+    <!-- CATEGORY 2: PADDLES -->
+    <div class="category-item">
+        <span class="cat-title">PADDLES</span>
+        <a href="<?php echo getInteractiveLink('apparels.php#paddles-section', $isLoggedIn); ?>" class="cat-card">
+            <img src="images/fourth/quality101.jpg" alt="Paddle Equipment">
+        </a>
+    </div>
 
-        <!-- CATEGORY 3: SNEAKERS -->
-        <div class="category-item">
-            <span class="cat-title">SNEAKERS</span>
-            <div class="cat-card">
-                <img src="images/fourth/shoes.jpg" alt="Pickleball Shoes">
-            </div>
-        </div>
+    <!-- CATEGORY 3: SNEAKERS -->
+    <div class="category-item">
+        <span class="cat-title">SNEAKERS</span>
+        <a href="<?php echo getInteractiveLink('apparels.php#sneakers-section', $isLoggedIn); ?>" class="cat-card">
+            <img src="images/fourth/shoes.jpg" alt="Pickleball Shoes">
+        </a>
+    </div>
 
+</div>
     </div>
 </section>
 
@@ -284,7 +312,7 @@ $lux='<span class="kani">Luxury</span> at its finest..';
 
 <!-- ************************   FIFTH PAGE STARTS HERE ****************************-->
 
-<section class="fifth-page">
+<section class="fifth-page" id="fifth-page">
     <!-- COURT BACKGROUND IMAGE -->
     <div class="fifth-bg">
         <img src="images/fifth/court.jpg" alt="Court Background">
@@ -311,23 +339,28 @@ $lux='<span class="kani">Luxury</span> at its finest..';
         </div>
 
         <!-- MIDDLE PART: 4 GALLERY IMAGES -->
-        <div class="fifth-gallery">
-            <div class="gallery-card">
+    <!-- MIDDLE PART: 4 GALLERY IMAGES -->
+    <div class="fifth-gallery">
+            
+            <a href="<?php echo getInteractiveLink('feedback.php?id=1', $isLoggedIn); ?>" class="gallery-card">
                 <img src="images/fifth/pretty.jpg" alt="Pretty">
-            </div>
-            <div class="gallery-card">
-                <img src="images/fifth/Negra.jpg" alt="Negra">
-            </div>
-            <div class="gallery-card">
-                <img src="images/fifth/sitting.jpg" alt="Sitting">
-            </div>
-            <div class="gallery-card">
-                <img src="images/fifth/couple.jpg" alt="Couple">
-            </div>
-        </div>
+            </a>
 
+            <a href="<?php echo getInteractiveLink('feedback.php?id=2', $isLoggedIn); ?>" class="gallery-card">
+                <img src="images/fifth/Negra.jpg" alt="Negra">
+            </a>
+
+            <a href="<?php echo getInteractiveLink('feedback.php?id=3', $isLoggedIn); ?>" class="gallery-card">
+                <img src="images/fifth/sitting.jpg" alt="Sitting">
+            </a>
+
+            <a href="<?php echo getInteractiveLink('feedback.php?id=4', $isLoggedIn); ?>" class="gallery-card">
+                <img src="images/fifth/couple.jpg" alt="Couple">
+            </a>
+
+        </div>
         <!-- FOOTER PART: BRAND, CONTACTS & SPONSORS -->
-<div class="fifth-footer">
+    <div class="fifth-footer">
     
     <div class="footer-left">
         <div class="footer-logo">
@@ -395,7 +428,7 @@ $lux='<span class="kani">Luxury</span> at its finest..';
             <span>UNDER ARMOUR</span>
         </div>
     </div>
-</div>
+    </div>
 
         </div>
 
@@ -409,6 +442,6 @@ $lux='<span class="kani">Luxury</span> at its finest..';
 
 
 
-
+<script src="script.js"></script>
 </body>
 </html>

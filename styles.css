@@ -1,3 +1,155 @@
+/* ==========================================
+   AUTHENTICATION PAGES (LOGIN & SIGNUP)
+   ========================================== */
+
+/* FULL-SCREEN CENTERING CONTAINER */
+.auth-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    background-color: #0D1725;
+    margin: 0;
+    padding: 20px;
+}
+
+/* CENTERED CARD WITH SMOOTH CURVED BORDERS AND PADDING */
+.auth-card {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px; /* SMOOTH CURVED BORDERS */
+    padding: 50px 45px;   /* GENEROUS PADDING INSIDE CARD */
+    width: 100%;
+    max-width: 480px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    text-align: center;
+}
+
+/* LOGO STYLING */
+.auth-logo {
+    font-family: "azonix", sans-serif;
+    font-size: 38px;
+    letter-spacing: 6px;
+    margin-bottom: 25px;
+}
+
+/* MAIN HEADINGS (AZONIX) */
+.auth-card h2 {
+    font-family: "azonix", sans-serif;
+    color: #FFFFFF;
+    font-size: 26px;
+    letter-spacing: 3px;
+    margin-bottom: 30px;
+}
+
+/* FORM LAYOUT */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    text-align: left;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* INPUT LABELS (NEXA 800 BOLD) */
+.form-group label {
+    font-family: "nexa", sans-serif;
+    font-weight: 800;
+    color: #19B5E5;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+}
+
+/* INPUT FIELDS (NEXA 200 NORMAL) */
+.form-group input {
+    width: 100%;
+    padding: 14px 18px;
+    border-radius: 12px; /* SMOOTH CURVED INPUT BOXES */
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.05);
+    color: #FFFFFF;
+    font-family: "nexa", sans-serif;
+    font-weight: 200;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: #19B5E5;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 12px rgba(25, 181, 229, 0.3);
+}
+
+/* SUBMIT BUTTON (NEXA 800 BOLD) */
+.auth-btn {
+    width: 100%;
+    padding: 16px;
+    background-color: #19B5E5;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 12px; /* SMOOTH CURVED BUTTON */
+    font-family: "nexa", sans-serif;
+    font-weight: 800;
+    font-size: 16px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+.auth-btn:hover {
+    background-color: #1598c2;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(25, 181, 229, 0.4);
+}
+
+/* SWITCH LINK TEXT (NEXA 200 NORMAL & 800 BOLD) */
+.auth-switch {
+    font-family: "nexa", sans-serif;
+    font-weight: 200;
+    color: #FFFFFF;
+    font-size: 14px;
+    margin-top: 30px;
+    letter-spacing: 1px;
+}
+
+.auth-switch a {
+    font-family: "nexa", sans-serif;
+    font-weight: 800;
+    color: #19B5E5;
+    text-decoration: none;
+    margin-left: 5px;
+    transition: color 0.3s ease;
+}
+
+.auth-switch a:hover {
+    color: #FFFFFF;
+}
+
+
+
+a.product-card,
+a.cat-card,
+a.gallery-card {
+    text-decoration: none;
+}
+
+
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 9px; /* ACCOMMODATES FIXED HEADER HEIGHT WHEN SCROLLING TO SECTIONS */
+}
+
+
 @font-face {
     font-family:"azonix";
 src: url("FONTS/Azonix.otf");
@@ -32,7 +184,11 @@ body {
 .first-page {
     position: relative;
     width: 100%;
-    min-height: 100vh;
+    min-height: calc(100vh - 120px);
+    padding: 170px 60px 60px 60px; /* INCREASED TOP PADDING TO PUSH CONTENT CLEAR OF FIXED HEADER */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     overflow: visible;
     margin-bottom: 120px;
 }
@@ -40,16 +196,35 @@ body {
    HEADER
 ========================= */
 
+.welcome-text {
+    font-family: 'azonix', sans-serif;
+    color: #FFFFFF;
+    font-size: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+
+
 .header {
-    width: 300;
+    width: 100%;                          /* FIXED INVALID '300' TO '100%' */
     height: 130px;
-    position: relative;
+    position: fixed;                     /* CHANGED FROM relative TO fixed */
+    top: 0;
+    left: 0;
+    z-index: 1000;                       /* KEEPS HEADER ABOVE ALL OTHER CONTENT */
     background: linear-gradient(
-    to bottom,
-    #0D1725 5%,
-    #264068 300%,
-    transparent 400px
+        to bottom,
+        #0D1725 5%,
+        #264068 300%,
+        transparent 400px
     );
+    transition: transform 0.4s ease-in-out; /* CREATES THE SMOOTH SLIDE ANIMATION */
+}
+
+/* ADD THIS RIGHT BELOW .header IN STYLES.CSS */
+.header.nav-hidden {
+    transform: translateY(-100%);        /* SLIDES HEADER UP OUT OF VIEW */
 }
 
 
@@ -173,15 +348,6 @@ background-color: transparent;
     background-color: transparent;
 }
 
-.first-page {
-    width: 100%;
-    min-height: calc(100vh - 120px);
-    padding: 60px;
-    display: flex;
-    
-    align-items: center;
-    justify-content: space-between;
-}
 
 .tagline {
     font-family: "azonix";
@@ -1185,4 +1351,158 @@ box-shadow: 0 10px 25px rgba(25, 181, 229, 0.2);
     width: 100%;
     text-align: center;
     z-index: 10;
+}
+
+
+
+
+
+/* LAINGGGG BAHINNNNN WHOOOOOOO */
+
+
+/* ==========================================
+   APPAREL PAGE STYLES (CENTERED)
+   ========================================== */
+
+   .apparel-hero-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 170px 60px 80px 60px;
+    background-color: #0D1725;
+    display: flex;
+    flex-direction: column;
+    align-items: center;    /* CENTERS FILTER BUTTONS & GRID HORIZONTALLY */
+    justify-content: flex-start;
+}
+
+.apparel-header-container {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* CATEGORY FILTER BUTTONS */
+.category-filters {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+.filter-btn {
+    font-family: "azonix", sans-serif;
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 12px 24px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background-color: #19B5E5;
+    color: #FFFFFF;
+    border-color: #19B5E5;
+    box-shadow: 0 5px 15px rgba(25, 181, 229, 0.3);
+}
+
+/* CENTERED PRODUCT CATALOG GRID */
+.apparel-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* CENTERS THE CARDS WITHIN THE CONTAINER */
+    gap: 30px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.apparel-card {
+    width: 300px; /* FIXED WIDTH FOR EQUAL CENTERING */
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.apparel-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(25, 181, 229, 0.2);
+    border-color: rgba(25, 181, 229, 0.4);
+}
+
+.apparel-img-box {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    background-color: #0a2332;
+}
+
+.apparel-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.apparel-card:hover .apparel-img-box img {
+    transform: scale(1.08);
+}
+
+.apparel-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+}
+
+.item-cat {
+    font-family: "azonix", sans-serif;
+    font-size: 11px;
+    color: #19B5E5;
+    letter-spacing: 1.5px;
+}
+
+.apparel-info h3 {
+    font-family: "nexa", sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    color: #FFFFFF;
+}
+
+.item-price {
+    font-family: "nexa", sans-serif;
+    font-weight: 200;
+    font-size: 16px;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+}
+
+.shoppie-sm {
+    font-family: "nexa", sans-serif;
+    font-weight: 800;
+    font-size: 14px;
+    background-color: #19B5E5;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease;
+}
+
+.shoppie-sm:hover {
+    background-color: #00b652;
 }
