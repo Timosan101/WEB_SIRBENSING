@@ -59,7 +59,7 @@ if ($result = $conn->query("SELECT COUNT(*) as total FROM users WHERE role = 'cl
     </div>
 
     <br><br>
-    <a href="../index.php" class="back-link">BACK TO MAIN SITE</a>
+    <a href="../apparels.php" class="back-link">BACK TO SITE</a>
 
 </body>
 </html>

@@ -341,24 +341,26 @@ $lux='<span class="kani">Luxury</span> at its finest..';
         <!-- MIDDLE PART: 4 GALLERY IMAGES -->
     <!-- MIDDLE PART: 4 GALLERY IMAGES -->
     <div class="fifth-gallery">
-            
-            <a href="<?php echo getInteractiveLink('feedback.php?id=1', $isLoggedIn); ?>" class="gallery-card">
-                <img src="images/fifth/pretty.jpg" alt="Pretty">
-            </a>
+    <?php 
+        $feedback_page = (isset($_SESSION['role']) && $_SESSION['role'] === 'admin') ? 'admin/feedbackviewer.php' : 'clients/feedbackclients.php';
+    ?>
 
-            <a href="<?php echo getInteractiveLink('feedback.php?id=2', $isLoggedIn); ?>" class="gallery-card">
-                <img src="images/fifth/Negra.jpg" alt="Negra">
-            </a>
+    <a href="<?php echo $feedback_page; ?>" class="gallery-card">
+        <img src="images/fifth/pretty.jpg" alt="Pretty">
+    </a>
 
-            <a href="<?php echo getInteractiveLink('feedback.php?id=3', $isLoggedIn); ?>" class="gallery-card">
-                <img src="images/fifth/sitting.jpg" alt="Sitting">
-            </a>
+    <a href="<?php echo $feedback_page; ?>" class="gallery-card">
+        <img src="images/fifth/Negra.jpg" alt="Negra">
+    </a>
 
-            <a href="<?php echo getInteractiveLink('feedback.php?id=4', $isLoggedIn); ?>" class="gallery-card">
-                <img src="images/fifth/couple.jpg" alt="Couple">
-            </a>
+    <a href="<?php echo $feedback_page; ?>" class="gallery-card">
+        <img src="images/fifth/sitting.jpg" alt="Sitting">
+    </a>
 
-        </div>
+    <a href="<?php echo $feedback_page; ?>" class="gallery-card">
+        <img src="images/fifth/couple.jpg" alt="Couple">
+    </a>
+</div>
         <!-- FOOTER PART: BRAND, CONTACTS & SPONSORS -->
     <div class="fifth-footer">
     

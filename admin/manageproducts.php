@@ -47,6 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (move_uploaded_file($file_tmp, $target_file)) {
                 $image_path = 'images/fourth/' . $file_name;
             }
+
         }
 
         if ($product_id > 0) {
@@ -107,7 +108,7 @@ if ($result = $conn->query("SELECT id, name, category, price, stock, image FROM 
     <!-- ADD / EDIT PRODUCT FORM CONTAINER -->
     <div id="productFormCard" class="card form-card">
         <h3 id="formTitle">ADD NEW PRODUCT</h3>
-        <form method="POST" action="manageproducts.php" enctype="multipart/form-data">
+        <form method="POST" action="processing.php" enctype="multipart/form-data">
             <input type="hidden" name="product_id" id="product_id" value="0">
 
             <label for="name">PRODUCT NAME:</label>
@@ -125,6 +126,17 @@ if ($result = $conn->query("SELECT id, name, category, price, stock, image FROM 
             <label for="product_image">PRODUCT IMAGE:</label>
             <div id="imagePreviewContainer" style="margin-bottom: 10px;"></div>
             <input type="file" name="product_image" id="product_image" accept="image/*" class="form-input">
+
+
+            <div id="currentImageDisplay" style="margin-bottom: 10px; display: none;">
+                <span class="label">CURRENT IMAGE:</span><br>
+                <img id="existingImageTag" src="" alt="Product Image" width="80"><br>
+                <label style="display: inline-block; margin-top: 5px;">
+                    <input type="checkbox" name="remove_image" value="1"> REMOVE CURRENT IMAGE
+                </label>
+            </div>
+
+
 
             <div class="form-actions">
                 <button type="submit" class="btn-save">SAVE PRODUCT</button>
@@ -160,7 +172,7 @@ if ($result = $conn->query("SELECT id, name, category, price, stock, image FROM 
                         <td>
                             <a href="javascript:void(0);" 
                                onclick='editProduct(<?php echo json_encode($product); ?>)'>EDIT</a> | 
-                            <a href="manageproducts.php?action=delete&id=<?php echo $product['id']; ?>" 
+                            <a href="processing.php?action=delete&id=<?php echo $product['id']; ?>" 
                                onclick="return confirm('ARE YOU SURE YOU WANT TO REMOVE THIS PRODUCT?');" 
                                class="logout-link">REMOVE</a>
                         </td>
@@ -210,6 +222,53 @@ if ($result = $conn->query("SELECT id, name, category, price, stock, image FROM 
             document.getElementById('productFormCard').style.display = 'none';
         }
     </script>
+
+
+<script>
+function openForm() {
+    document.getElementById('productFormCard').style.display = 'block';
+    document.getElementById('formTitle').innerText = 'ADD NEW PRODUCT';
+    document.getElementById('product_id').value = '0';
+    document.getElementById('name').value = '';
+    document.getElementById('category').value = '';
+    document.getElementById('price').value = '';
+    document.getElementById('stock').value = '';
+    document.getElementById('product_image').value = '';
+    document.getElementById('imagePreviewContainer').innerHTML = '';
+    document.getElementById('currentImageDisplay').style.display = 'none';
+    document.getElementById('existingImageTag').src = '';
+}
+
+function editProduct(product) {
+    document.getElementById('productFormCard').style.display = 'block';
+    document.getElementById('formTitle').innerText = 'EDIT PRODUCT #' + product.id;
+    document.getElementById('product_id').value = product.id;
+    document.getElementById('name').value = product.name;
+    document.getElementById('category').value = product.category;
+    document.getElementById('price').value = product.price;
+    document.getElementById('stock').value = product.stock;
+    document.getElementById('product_image').value = '';
+
+    const imgDisplay = document.getElementById('currentImageDisplay');
+    const imgTag = document.getElementById('existingImageTag');
+    
+    if (product.image && product.image.trim() !== '') {
+        imgTag.src = '../' + product.image;
+        imgDisplay.style.display = 'block';
+    } else {
+        imgDisplay.style.display = 'none';
+        imgTag.src = '';
+    }
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function closeForm() {
+    document.getElementById('productFormCard').style.display = 'none';
+}
+</script>
+
+
 
 </body>
 </html>

@@ -114,9 +114,6 @@ $atrion = '<span class="A">A</span><span class="TRION">TRION</span>';
     </nav>
 </header>
 
-
-
-
 <section class="apparel-hero-section">
     <div class="apparel-header-container">
         <h1 class="main-heading">ATRION COLLECTION</h1>
@@ -135,7 +132,7 @@ $atrion = '<span class="A">A</span><span class="TRION">TRION</span>';
                     <?php foreach ($items as $product): ?>
                         <div class="apparel-card" id="card-<?php echo $product['id']; ?>">
                             <div class="apparel-img-box">
-                                <img src="<?php echo htmlspecialchars(!empty($product['image']) ? $product['image'] : 'images/fourth/shirts.jpg'); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>">
+                                <img src="<?php echo htmlspecialchars(!empty($product['image']) ? $product['image'] : 'images/fourth/kuan.png'); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>">
                             </div>
                             <div class="apparel-info">
                                 <span class="item-cat"><?php echo htmlspecialchars($category_name); ?></span>

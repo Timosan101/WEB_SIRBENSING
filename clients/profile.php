@@ -83,8 +83,6 @@ if ($stmt = $conn->prepare($history_query)) {
 
     <hr>
 
-
-
     <!-- CURRENT / ACTIVE ORDERS -->
     <h2>ACTIVE ORDERS</h2>
     <table class="data-table">
@@ -101,45 +99,42 @@ if ($stmt = $conn->prepare($history_query)) {
             </tr>
         </thead>
         <tbody>
-    <?php if ($active_orders && $active_orders->num_rows > 0): ?>
-        <?php 
-        $grand_total = 0; // 1. INITIALIZE GRAND TOTAL COUNTER
-        while ($order = $active_orders->fetch_assoc()): 
-            $total_price = $order['price'] * $order['quantity']; 
-            $grand_total += $total_price; // 2. ADD TO GRAND TOTAL
-        ?>
+            <?php if ($active_orders && $active_orders->num_rows > 0): ?>
+                <?php 
+                $grand_total = 0; // 1. INITIALIZE GRAND TOTAL COUNTER
+                while ($order = $active_orders->fetch_assoc()): 
+                    $total_price = $order['price'] * $order['quantity']; 
+                    $grand_total += $total_price; // 2. ADD TO GRAND TOTAL
+                ?>
+                    <tr>
+                        <td>#<?php echo $order['id']; ?></td>
+                        <td><?php echo strtoupper(htmlspecialchars($order['product_name'])); ?></td>
+                        <td><?php echo strtoupper(htmlspecialchars($order['category'])); ?></td>
+                        <td><?php echo $order['quantity']; ?></td>
+                        <td>$<?php echo number_format($order['price'], 2); ?></td>
+                        <td>$<?php echo number_format($total_price, 2); ?></td>
+                        <td><strong class="status-badge"><?php echo strtoupper(htmlspecialchars($order['status'])); ?></strong></td>
+                        <td><?php echo $order['delivery_date'] ?? 'PENDING DISPATCH'; ?></td>
+                    </tr>
+                <?php endwhile; ?>
+            <?php else: ?>
+                <tr>
+                    <td colspan="8" class="no-data">NO ACTIVE ORDERS AT THE MOMENT.</td>
+                </tr>
+            <?php endif; ?>
+        </tbody>
+        <?php if ($active_orders && $active_orders->num_rows > 0): ?>
+        <tfoot>
             <tr>
-                <td>#<?php echo $order['id']; ?></td>
-                <td><?php echo strtoupper(htmlspecialchars($order['product_name'])); ?></td>
-                <td><?php echo strtoupper(htmlspecialchars($order['category'])); ?></td>
-                <td><?php echo $order['quantity']; ?></td>
-                <td>$<?php echo number_format($order['price'], 2); ?></td>
-                <td>$<?php echo number_format($total_price, 2); ?></td>
-                <td><strong class="status-badge"><?php echo strtoupper(htmlspecialchars($order['status'])); ?></strong></td>
-                <td><?php echo $order['delivery_date'] ?? 'PENDING DISPATCH'; ?></td>
+                <td colspan="8" style="text-align: center; font-weight: bold; padding: 15px; background: rgba(25, 181, 229, 0.1);">
+                    OVERALL TOTAL PRICE: $<?php echo number_format($grand_total, 2); ?>
+                </td>
             </tr>
-        <?php endwhile; ?>
-    <?php else: ?>
-        <tr>
-            <td colspan="8" class="no-data">NO ACTIVE ORDERS AT THE MOMENT.</td>
-        </tr>
-    <?php endif; ?>
-
-    <?php if ($active_orders && $active_orders->num_rows > 0): ?>
-<tfoot>
-    <tr>
-        <td colspan="8" style="text-align: center; font-weight: bold; padding: 15px; background: rgba(25, 181, 229, 0.1);">
-            OVERALL TOTAL PRICE: $<?php echo number_format($grand_total, 2); ?>
-        </td>
-    </tr>
-</tfoot>
-<?php endif; ?>
-
-    </tbody>
+        </tfoot>
+        <?php endif; ?>
     </table>
 
     <br><br>
-
 
     <!-- ORDER HISTORY -->
     <h2>ORDER HISTORY</h2>
